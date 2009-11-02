@@ -30,6 +30,7 @@ module GeonamesRails
           city.country = country
         
           city.attributes = city_mapping.slice(:name,
+                                               :alternate_name,
                                                :latitude,
                                                :longitude,
                                                :country_iso_code_two_letters,
@@ -39,7 +40,7 @@ module GeonamesRails
           city.save!
         end
         
-        "Processed #{country.name}(#{country_code}) with #{cities.length} cities"
+        "Processed #{country.name}(#{country_code}) with #{country.cities.length} cities"
       end
 
     end
